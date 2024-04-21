@@ -1,0 +1,1 @@
+{"transformer_layer_cls_to_wrap": "LlamaDecoderLayer", "use_orig_params": "True", "activation_checkpointing": "False"}
