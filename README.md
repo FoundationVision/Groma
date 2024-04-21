@@ -1,7 +1,7 @@
 # Groma: Grounded Multimodal Assistant
 
 <p align="left"> 
-    <img src='docs/teaser.png' align="center" width="70%"> 
+    <img src='docs/teaser.png' align="center" width="80%"> 
 </p>
 
 > [**Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models**]()               
