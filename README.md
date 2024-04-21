@@ -29,6 +29,7 @@ Create the conda environment and install dependencies
 ~~~
 conda create -n groma python=3.9 -y
 conda activate groma
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 
