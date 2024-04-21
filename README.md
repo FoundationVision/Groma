@@ -1,6 +1,8 @@
 # Groma: Grounded Multimodal Assistant
 
-<p align="center"> <img src='docs/teaser.png' align="center"> </p>
+<p align="left"> 
+    <img src='docs/teaser.png' align="center" width="70%"> 
+</p>
 
 > [**Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models**]()               
 > Chuofan Ma, Yi Jiang, Jiannan Wu, Zehuan Yuan, Xiaojuan Qi    
@@ -20,6 +22,7 @@
 Clone the repository
 ~~~
 git clone https://github.com/FoundationVision/Groma.git
+cd Groma
 ~~~
 
 Create the conda environment and install dependencies
