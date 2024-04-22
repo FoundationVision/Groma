@@ -4,7 +4,7 @@
     <img src='docs/teaser.png' align="center" width="80%"> 
 </p>
 
-> [**Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models**]()               
+> [**Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models**](https://arxiv.org/abs/2404.13013)               
 > Chuofan Ma, Yi Jiang, Jiannan Wu, Zehuan Yuan, Xiaojuan Qi    
 > *Project page ([https://groma-mllm.github.io](https://groma-mllm.github.io))*   
 
@@ -176,3 +176,17 @@ Groma is built upon the awesome works
 ## LICENSE
 This project is licensed under the Apache License 2.0 - 
 see the [LICENSE](LICENSE) file for details.
+
+
+## Citation
+If our work assists your research, feel free to give us a star ⭐ or cite us using:
+```
+@misc{Groma,
+      title={Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models}, 
+      author={Chuofan Ma and Yi Jiang and Jiannan Wu and Zehuan Yuan and Xiaojuan Qi},
+      year={2024},
+      eprint={2404.13013},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
