@@ -13,7 +13,7 @@
 <p align="left">Groma is an MLLM with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
 
 <img src='docs/paradigm.png' align="center" width="80%">
-<p align="left">A novel paradigm of grounded MLLMs. (a) LLM for localization (e.g., Kosmos-2, Shikra); (b) External modules for localization (e.g., Lisa); and (c) <b>Visual tokenier for localization (Groma)</b>.
+<p align="left">Groma presents a novel paradigm of grounded MLLMs. (a) LLM for localization (e.g., Kosmos-2, Shikra); (b) External modules for localization (e.g., Lisa); and (c) <b>Visual tokenier for localization (Groma)</b>.
 
 </div>
 
