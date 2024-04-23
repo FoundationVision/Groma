@@ -10,7 +10,7 @@
 ><a href='https://huggingface.co/datasets/FoundationVision/groma_instruct'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow'></a>
 
 <img src='docs/teaser.png' align="center" width="80%">
-<p>Groma is a multimodal large language model with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
+<p align="left">Groma is a multimodal large language model with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
 </div>
 
 
@@ -27,7 +27,9 @@
 ## Performance
 State-of-the-art performance on referring expression comprehension (REC) benchmarks among multimodal
 large language models.
+
 <table>
+    <thead>
     <tr>
         <th rowspan="2">Method</th>
         <th colspan="3">RefCOCO</th>
@@ -45,53 +47,55 @@ large language models.
         <th>val</th>
         <th>test</th>
     </tr>
-    <tr>
-        <th>Shikra</th>
-        <th>87.01</th>
-        <th>90.61</th>
-        <th>80.24</th>
-        <th>81.60</th>
-        <th>87.36</th>
-        <th>72.12</th>
-        <th>82.27</th>
-        <th>82.19</th>
-        <th>82.93</th>
+    </thead>
+    <tbody>
+    <tr align="center">
+        <td>Shikra</td>
+        <td>87.01</td>
+        <td>90.61</td>
+        <td>80.24</td>
+        <td>81.60</td>
+        <td>87.36</td>
+        <td>72.12</td>
+        <td>82.27</td>
+        <td>82.19</td>
+        <td>82.93</td>
     </tr>
-    <tr>
-        <th>Ferret</th>
-        <th>87.49</th>
-        <th>91.35</th>
-        <th>82.45</th>
-        <th>80.78</th>
-        <th>87.38</th>
-        <th>73.14</th>
-        <th>83.93</th>
-        <th>84.76</th>
-        <th>83.91</th>
+    <tr align="center">
+        <td>Ferret</td>
+        <td>87.49</td>
+        <td>91.35</td>
+        <td>82.45</td>
+        <td>80.78</td>
+        <td>87.38</td>
+        <td>73.14</td>
+        <td>83.93</td>
+        <td>84.76</td>
+        <td>83.91</td>
     </tr>
-    <tr>
-        <th>MiniGPT-v2</th>
-        <th>88.69</th>
-        <th>91.65</th>
-        <th>85.33</th>
-        <th>79.97</th>
-        <th>85.12</th>
-        <th>74.45</th>
-        <th>84.44</th>
-        <th>84.66</th>
-        <th>84.29</th>
+    <tr align="center">
+        <td>MiniGPT-v2</td>
+        <td>88.69</td>
+        <td>91.65</td>
+        <td>85.33</td>
+        <td>79.97</td>
+        <td>85.12</td>
+        <td>74.45</td>
+        <td>84.44</td>
+        <td>84.66</td>
+        <td>84.29</td>
     </tr>
-    <tr>
-        <th>Qwen-VL</th>
-        <th>89.36</th>
-        <th>92.26</th>
-        <th>85.34</th>
-        <th>83.12</th>
-        <th>88.25</th>
-        <th>77.21</th>
-        <th>85.58</th>
-        <th>85.48</th>
-        <th>85.83</th>
+    <tr align="center">
+        <td>Qwen-VL</td>
+        <td>89.36</td>
+        <td>92.26</td>
+        <td>85.34</td>
+        <td>83.12</td>
+        <td>88.25</td>
+        <td>77.21</td>
+        <td>85.58</td>
+        <td>85.48</td>
+        <td>85.83</td>
     </tr>
     <tr style="background-color: #ADD8E6;">
         <th>Groma</th>
@@ -105,8 +109,8 @@ large language models.
         <th>87.01</th>
         <th>86.52</th>
     </tr>
+    </tbody>
 </table>
-
 
 ## Installation
 Clone the repository
@@ -235,25 +239,18 @@ python -m llava.eval.run_groma \
 For evaluation, please refer to [EVAL.md](docs/EVAL.md) for more details.
 
 
-[comment]: <> (## Citation)
-
-[comment]: <> (If you find this repo useful for your research, please consider citing our paper:)
-
-[comment]: <> (```)
-
-[comment]: <> (@inproceedings{ma2023codet,)
-
-[comment]: <> (  title={CoDet: Co-Occurrence Guided Region-Word Alignment for Open-Vocabulary Object Detection},)
-
-[comment]: <> (  author={Ma, Chuofan and Jiang, Yi and Wen, Xin and Yuan, Zehuan and Qi, Xiaojuan},)
-
-[comment]: <> (  booktitle={Advances in Neural Information Processing Systems},)
-
-[comment]: <> (  year={2023})
-
-[comment]: <> (})
-
-[comment]: <> (```)
+## Citation
+If you find this repo useful for your research, feel free to give us a star ⭐ or cite our paper:
+```
+@misc{Groma,
+      title={Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models}, 
+      author={Chuofan Ma and Yi Jiang and Jiannan Wu and Zehuan Yuan and Xiaojuan Qi},
+      year={2024},
+      eprint={2404.13013},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 
 ## Acknowledgement
@@ -266,17 +263,3 @@ Groma is built upon the awesome works
 ## LICENSE
 This project is licensed under the Apache License 2.0 - 
 see the [LICENSE](LICENSE) file for details.
-
-
-## Citation
-If our work assists your research, feel free to give us a star ⭐ or cite us using:
-```
-@misc{Groma,
-      title={Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models}, 
-      author={Chuofan Ma and Yi Jiang and Jiannan Wu and Zehuan Yuan and Xiaojuan Qi},
-      year={2024},
-      eprint={2404.13013},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
