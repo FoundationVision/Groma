@@ -10,7 +10,11 @@
 ><a href='https://huggingface.co/datasets/FoundationVision/groma_instruct'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow'></a>
 
 <img src='docs/teaser.png' align="center" width="80%">
-<p align="left">Groma is a multimodal large language model with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
+<p align="left">Groma is an MLLM with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
+
+<img src='docs/paradigm.png' align="center">
+<p align="left">A novel paradigm of grounded MLLMs. (a) LLM for localization (e.g., Kosmos-2, Shikra); (b) External modules for localization (e.g., Lisa); and (c) <b>Visual tokenier for localization (Groma)</b>.
+
 </div>
 
 
