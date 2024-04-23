@@ -1,12 +1,17 @@
-# Groma: Grounded Multimodal Assistant
-
-<p align="left"> 
-    <img src='docs/teaser.png' align="center" width="80%"> 
-</p>
+<div align="center">
+<h1> Groma: Grounded Multimodal Assistant </h1>
 
 > [**Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models**](https://arxiv.org/abs/2404.13013)               
-> Chuofan Ma, Yi Jiang, Jiannan Wu, Zehuan Yuan, Xiaojuan Qi    
-> *Project page ([https://groma-mllm.github.io](https://groma-mllm.github.io))*   
+> **Chuofan Ma, Yi Jiang, Jiannan Wu, Zehuan Yuan, Xiaojuan Qi**
+> 
+><a href="https://arxiv.org/abs/2404.13013"><img src='https://img.shields.io/badge/arXiv-Groma-red' alt='Paper PDF'></a>
+><a href='https://groma-mllm.github.io/'><img src='https://img.shields.io/badge/Project_Page-Groma-green' alt='Project Page'></a>
+><a href='https://huggingface.co/FoundationVision/groma-7b-finetune'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
+><a href='https://huggingface.co/datasets/FoundationVision/groma_instruct'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow'></a>
+
+<img src='docs/teaser.png' align="center" width="80%">
+<p>Groma is a multimodal large language model with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
+</div>
 
 
 ## Contents
@@ -16,6 +21,91 @@
 - [Training](#training)
 - [Inference](#inference)
 - [Evaluation](#evaluation)
+
+
+
+## Performance
+State-of-the-art performance on referring expression comprehension (REC) benchmarks among multimodal
+large language models.
+<table>
+    <tr>
+        <th rowspan="2">Method</th>
+        <th colspan="3">RefCOCO</th>
+        <th colspan="3">RefCOCO+</th>
+        <th colspan="2">RefCOCOg</th>
+        <th rowspan="2">Avergae</th>
+    </tr>
+    <tr>
+        <th>val</th>
+        <th>testA</th>
+        <th>testB</th>
+        <th>val</th>
+        <th>testA</th>
+        <th>testB</th>
+        <th>val</th>
+        <th>test</th>
+    </tr>
+    <tr>
+        <th>Shikra</th>
+        <th>87.01</th>
+        <th>90.61</th>
+        <th>80.24</th>
+        <th>81.60</th>
+        <th>87.36</th>
+        <th>72.12</th>
+        <th>82.27</th>
+        <th>82.19</th>
+        <th>82.93</th>
+    </tr>
+    <tr>
+        <th>Ferret</th>
+        <th>87.49</th>
+        <th>91.35</th>
+        <th>82.45</th>
+        <th>80.78</th>
+        <th>87.38</th>
+        <th>73.14</th>
+        <th>83.93</th>
+        <th>84.76</th>
+        <th>83.91</th>
+    </tr>
+    <tr>
+        <th>MiniGPT-v2</th>
+        <th>88.69</th>
+        <th>91.65</th>
+        <th>85.33</th>
+        <th>79.97</th>
+        <th>85.12</th>
+        <th>74.45</th>
+        <th>84.44</th>
+        <th>84.66</th>
+        <th>84.29</th>
+    </tr>
+    <tr>
+        <th>Qwen-VL</th>
+        <th>89.36</th>
+        <th>92.26</th>
+        <th>85.34</th>
+        <th>83.12</th>
+        <th>88.25</th>
+        <th>77.21</th>
+        <th>85.58</th>
+        <th>85.48</th>
+        <th>85.83</th>
+    </tr>
+    <tr style="background-color: #ADD8E6;">
+        <th>Groma</th>
+        <th>89.53</th>
+        <th>92.09</th>
+        <th>86.26</th>
+        <th>83.90</th>
+        <th>88.91</th>
+        <th>78.05</th>
+        <th>86.37</th>
+        <th>87.01</th>
+        <th>86.52</th>
+    </tr>
+</table>
 
 
 ## Installation
