@@ -232,7 +232,7 @@ bash scripts/vl_finetune.sh {path_to_groma_7b_pretrain_ckpt} {output_dir}
 ## Inference
 To test on single image, you can run
 ~~~
-python -m llava.eval.run_groma \
+python -m groma.eval.run_groma \
     --model-name {path_to_groma_7b_finetune} \
     --image-file {path_to_img} \
     --query {user_query}
