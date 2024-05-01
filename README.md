@@ -223,7 +223,7 @@ For alignment pretraining, please run
 bash scripts/vl_pretrain.sh {path_to_vicuna_ckpt} {path_to_groma_det_pretrain_ckpt} {output_dir}
 ~~~
 
-For instruction finetuing, please run
+For instruction finetuning, please run
 ~~~
 bash scripts/vl_finetune.sh {path_to_groma_7b_pretrain_ckpt} {output_dir}
 ~~~
