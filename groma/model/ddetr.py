@@ -51,7 +51,6 @@ class CustomDDETRConfig(PretrainedConfig):
     def __init__(
         self,
         vis_encoder_cfg=None,
-        vis_encoder_path=None,
         zs_weight_path=None,
         vis_output_layer=-1,
         ddetr_cfg=None,
@@ -79,7 +78,6 @@ class CustomDDETRConfig(PretrainedConfig):
         else:
             raise NotImplementedError("currently only supports DeformableDetrTransformer as detector head.")
 
-        self.vis_encoder_path = vis_encoder_path
         self.zs_weight_path = zs_weight_path
         self.vis_output_layer = vis_output_layer
 
@@ -100,11 +98,11 @@ class CustomDDETRConfig(PretrainedConfig):
 class CustomDDETRModel(PreTrainedModel):
     config_class = CustomDDETRConfig
 
-    def __init__(self, config: CustomDDETRConfig):
+    def __init__(self, config: CustomDDETRConfig, pretrained_vis_encoder=None):
         super().__init__(config)
 
-        if config.vis_encoder_path is not None:
-            self.vis_encoder = Dinov2Model.from_pretrained(config.vis_encoder_path)
+        if pretrained_vis_encoder is not None:
+            self.vis_encoder = Dinov2Model.from_pretrained(pretrained_vis_encoder)
         else:
             self.vis_encoder = Dinov2Model(config.vis_encoder_cfg)
 

@@ -183,13 +183,12 @@ def train():
         focal_alpha=model_args.focal_alpha,
     )
     model_cfg = CustomDDETRConfig(
-        vis_encoder_path=model_args.vis_encoder,
         zs_weight_path=model_args.zs_weight_path,
         vis_encoder_cfg=vis_encoder_cfg,
         ddetr_cfg=ddetr_cfg,
         vis_output_layer=model_args.vis_output_layer,
     )
-    model = CustomDDETRModel(model_cfg)
+    model = CustomDDETRModel(model_cfg, pretrained_vis_encoder=model_args.vis_encoder)
 
     if training_args.freeze_vis_encoder:
         model.freeze_vis_encoder()
