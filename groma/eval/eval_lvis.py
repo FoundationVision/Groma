@@ -122,7 +122,7 @@ def eval_model(args):
         img_prefix=args.img_prefix,
         tokenizer=tokenizer,
         test_mode=True,
-        conv_temp='groma'
+        conv_temp='llava'
     )
     sampler = SequentialSampler(dataset)
     dataloader = DataLoader(
