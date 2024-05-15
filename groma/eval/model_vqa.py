@@ -77,7 +77,7 @@ def eval_model(args):
         img_prefix=args.img_prefix,
         tokenizer=tokenizer,
         img_processor=img_processor,
-        conv_temp='groma'
+        conv_temp='llava'
     )
 
     ans_file = open(args.answers_file, "w")

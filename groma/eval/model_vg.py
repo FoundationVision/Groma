@@ -83,7 +83,7 @@ def eval_model(args):
         img_prefix=args.img_prefix,
         tokenizer=tokenizer,
         test_mode=True,
-        conv_temp='groma'
+        conv_temp='llava'
     )
     distributed_sampler = DistributedSampler(dataset, rank=args.rank, shuffle=False)
     dataloader = DataLoader(

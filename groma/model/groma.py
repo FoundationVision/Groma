@@ -36,8 +36,8 @@ class GromaConfig(PretrainedConfig):
         llm_cfg=None,
         perceiver_cfg=None,
         num_new_token=0,
-        nms_thres=0.0,
-        box_score_thres=0.0,
+        nms_thres=0.6,
+        box_score_thres=0.15,
         max_region_num=100,
         **kwargs,
     ):
