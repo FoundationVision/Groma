@@ -75,18 +75,19 @@ def eval_model(model_name, image_file, query, quantized):
     image = vis_processor.preprocess(raw_image, return_tensors='pt')['pixel_values'].to('cuda')
 
     with torch.inference_mode():
-        outputs = model.generate(
-            input_ids,
-            images=image,
-            use_cache=True,
-            do_sample=False,
-            max_new_tokens=1024,
-            return_dict_in_generate=True,
-            output_hidden_states=True,
-            generation_config=model.generation_config,
-            # user-specified box input [x, y, w, h] (normalized)
-            # refer_boxes=[torch.tensor([0.5874, 0.4748, 0.3462, 0.5059]).cuda().reshape(1, 4)]
-        )
+        with torch.autocast(device_type="cuda"):
+            outputs = model.generate(
+                input_ids,
+                images=image,
+                use_cache=True,
+                do_sample=False,
+                max_new_tokens=1024,
+                return_dict_in_generate=True,
+                output_hidden_states=True,
+                generation_config=model.generation_config,
+                # user-specified box input [x, y, w, h] (normalized)
+                # refer_boxes=[torch.tensor([0.5874, 0.4748, 0.3462, 0.5059]).cuda().reshape(1, 4)]
+            )
     output_ids = outputs.sequences
     input_token_len = input_ids.shape[1]
     pred_boxes = outputs.hidden_states[0][-1]['pred_boxes'][0].cpu()
