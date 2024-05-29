@@ -235,7 +235,8 @@ To test on single image, you can run
 python -m groma.eval.run_groma \
     --model-name {path_to_groma_7b_finetune} \
     --image-file {path_to_img} \
-    --query {user_query}
+    --query {user_query} \
+    --quant_type 'none' # support ['none', 'fp16', '8bit', '4bit'] for inference
 ~~~
 
 

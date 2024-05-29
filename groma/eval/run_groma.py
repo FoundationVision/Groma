@@ -3,17 +3,16 @@ import copy
 import torch
 import argparse
 import requests
-from PIL import Image, ImageDraw
 from io import BytesIO
-from transformers import AutoTokenizer, AutoImageProcessor
+from PIL import Image, ImageDraw
 from transformers.image_transforms import center_to_corners_format
+from transformers import AutoTokenizer, AutoImageProcessor, BitsAndBytesConfig
 
 from groma.utils import disable_torch_init
 from groma.model.groma import GromaModel
 from groma.constants import DEFAULT_TOKENS
 from groma.data.conversation import conv_templates
 
-from transformers import  BitsAndBytesConfig
 
 def load_image(image_file):
     if image_file.startswith('http') or image_file.startswith('https'):
@@ -34,26 +33,29 @@ def draw_box(box, image, index, output_dir):
     return
 
 
-def eval_model(model_name, image_file, query, quantized):
+def eval_model(model_name, quant_type, image_file, query,):
     # Model
     disable_torch_init()
     model_name = os.path.expanduser(model_name)
     vis_processor = AutoImageProcessor.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
-    
-    if quantized:
-        kwargs = {'quantization_config':BitsAndBytesConfig(
-                    load_in_4bit=True,
-                    bnb_4bit_compute_dtype=torch.bfloat16,    
-                    bnb_4bit_quant_storage=torch.uint8,
-                    bnb_4bit_use_double_quant=False,    
-                    bnb_4bit_quant_type='nf4'
-                      )
-                    }
-        model = GromaModel.from_pretrained(model_name, **kwargs)
-    else:
-        model = GromaModel.from_pretrained(model_name).cuda()        
-        
+
+    kwargs = {}
+    if quant_type == 'fp16':
+        kwargs['torch_dtype'] = torch.float16
+    elif quant_type == '8bit':
+        kwargs['load_in_8bit'] = True
+    elif quant_type == '4bit':
+        int4_quant_cfg = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_quant_storage=torch.uint8,
+            bnb_4bit_use_double_quant=False,
+            bnb_4bit_quant_type='nf4'
+        )
+        kwargs = {'quantization_config': int4_quant_cfg}
+
+    model = GromaModel.from_pretrained(model_name, **kwargs).cuda()        
     model.init_special_token_id(tokenizer)
 
     conversations = []
@@ -123,7 +125,7 @@ if __name__ == "__main__":
     parser.add_argument("--image-file", type=str, default=None)
     parser.add_argument("--output-dir", type=str, default='output')
     parser.add_argument("--query", type=str, default=None)
-    parser.add_argument("--quantized", action='store_true')
+    parser.add_argument("--quant_type", type=str, default='none')
     args = parser.parse_args()
 
     model_name = os.path.expanduser(args.model_name)
@@ -131,8 +133,8 @@ if __name__ == "__main__":
         image_files = sorted(os.listdir(args.image_dir))
         for image_file in image_files:
             image_file = os.path.join(args.image_dir, image_file)
-            eval_model(model_name, image_file, args.query, args.quantized)
+            eval_model(model_name, args.quant_type, image_file, args.query)
     elif args.image_file is not None:
-        eval_model(model_name, args.image_file, args.query, args.quantized)
+        eval_model(model_name, args.quant_type, args.image_file, args.query)
     else:
         print("Please specify image file or image directory.")
