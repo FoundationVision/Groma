@@ -265,6 +265,10 @@ kwargs = {'quantization_config':BitsAndBytesConfig(
               )
             }
 model = GromaModel.from_pretrained(model_name, **kwargs)
+
+# Add autocast before generate as the quantization can generate typing problems
+with torch.autocast(device_type="cuda"):
+    outputs = model.generate( ... )
 ```
 </div>
 
