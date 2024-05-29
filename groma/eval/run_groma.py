@@ -122,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument("--image-file", type=str, default=None)
     parser.add_argument("--output-dir", type=str, default='output')
     parser.add_argument("--query", type=str, default=None)
-    parser.add_argument("--quantized", type=bool, default=False)
+    parser.add_argument("--quantized", action='store_true')
     args = parser.parse_args()
 
     model_name = os.path.expanduser(args.model_name)
