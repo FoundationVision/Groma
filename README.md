@@ -9,13 +9,6 @@
 ><a href='https://huggingface.co/FoundationVision/groma-7b-finetune'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 ><a href='https://huggingface.co/datasets/FoundationVision/groma_instruct'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow'></a>
 
-<div align="center">
-<h2> 4-bit model 
-    <a href='https://huggingface.co/vcadillo/groma-4-bits/tree/main'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'>
-    </a>
-</h2>
-</div>
-
 <img src='docs/teaser.png' align="center" width="80%">
 <p align="left">Groma is an MLLM with exceptional region understanding and visual grounding capabilities. It can take user-defined region inputs (boxes) as well as generate long-form responses that are grounded to visual context.</p>
 
@@ -237,36 +230,14 @@ bash scripts/vl_finetune.sh {path_to_groma_7b_pretrain_ckpt} {output_dir}
 
 
 ## Inference
-To test on single image with 4-bit quantization, you can run
+To test on single image, you can run
 ~~~
 python -m groma.eval.run_groma \
     --model-name {path_to_groma_7b_finetune} \
     --image-file {path_to_img} \
-    --query {user_query} \
-    --quantized
+    --query {user_query}
 ~~~
 
-
-<div align='left'>
-<h2>How to use outside the custom code?</h2>
-
-```python
-from groma.model.groma import GromaModel
-from transformers import  BitsAndBytesConfig
-
-model_name = 'path-to-checkpoint-dir'
-
-kwargs = {'quantization_config':BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.bfloat16,    
-            bnb_4bit_quant_storage=torch.uint8,
-            bnb_4bit_use_double_quant=False,    
-            bnb_4bit_quant_type='nf4'
-              )
-            }
-model = GromaModel.from_pretrained(model_name, **kwargs)
-```
-</div>
 
 ## Evaluation
 For evaluation, please refer to [EVAL.md](docs/EVAL.md) for more details.
