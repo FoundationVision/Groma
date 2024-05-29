@@ -17,6 +17,7 @@ dependencies = [
     "requests", "sentencepiece", "tokenizers==0.12.1",
     "uvicorn", "shortuuid", "scipy", "pycocotools", "pycocoevalcap",
     "deepspeed==0.9.2", "peft==0.3.0", "terminaltables", "transformers==4.32.0",
+    "bitsandbytes==0.43.1",
     "lvis @ git+https://github.com/lvis-dataset/lvis-api.git",
     "accelerate @ git+https://github.com/huggingface/accelerate@a2d8f540c3ab37c8f84d616be1300a0572b69cf8"
 ]
