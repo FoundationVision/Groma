@@ -247,13 +247,11 @@ For evaluation, please refer to [EVAL.md](docs/EVAL.md) for more details.
 ## Citation
 If you find this repo useful for your research, feel free to give us a star ⭐ or cite our paper:
 ```
-@misc{Groma,
-      title={Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models}, 
-      author={Chuofan Ma and Yi Jiang and Jiannan Wu and Zehuan Yuan and Xiaojuan Qi},
-      year={2024},
-      eprint={2404.13013},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{ma2024groma,
+  title={Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models},
+  author={Ma, Chuofan and Jiang, Yi and Wu, Jiannan and Yuan, Zehuan and Qi, Xiaojuan},
+  journal={arXiv preprint arXiv:2404.13013},
+  year={2024}
 }
 ```
 
